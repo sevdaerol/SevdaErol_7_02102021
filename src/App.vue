@@ -13,11 +13,11 @@
   color: #FFFFFF;
 }
 body {
-  background: #454545;
+  background: #060c52;
 }
 input {
-  background: #ffd7d7;
-  border-radius: 15px;
+  background: white;
+  border: 2px solid black;
 }
 #nav {
   padding: 30px;

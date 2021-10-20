@@ -4,7 +4,7 @@
 //Vue.use(VueRouter)
 import { createRouter, createWebHistory } from 'vue-router'
 
-import loginForm from '../components/loginForm' //importer le components loginform
+import loginSignup from '../components/loginSignup' //importer le components loginSignup
 
 
 
@@ -13,7 +13,7 @@ const routes = [
   {
     path: '/',
     name: 'login',
-    component: loginForm
+    component: loginSignup
   },
 
 ]

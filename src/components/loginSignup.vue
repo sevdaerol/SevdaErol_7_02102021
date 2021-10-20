@@ -2,30 +2,32 @@
 <div id="login-page">
     <div>
         <div>
-            <img class="logo-img" src="../assets/icon-left-font-monochrome-black.svg" alt="groupomania logo"/>
+            <img class="logo-img" src="../assets/icon-left-font-monochrome-white.svg" alt="groupomania logo"/>
         </div>
         <h1>Bienvenue sur Groupomania!</h1>
         <div id="signup-login-selector">
             <button id="login" class="login-page-form-select-btn btn" @click="showLoginForm = !showLoginForm, showSignupForm = !showSignupForm, menuSelector">Log In</button>
             <button id="signup" class="login-page-form-select-btn btn" @click="showSignupForm = !showSignupForm, showLoginForm = !showLoginForm, menuSelector">Sign Up</button>
         </div>
-        <div id="signup-form" v-show="showSignupForm">
-            <h2>Créez un compte</h2>
-            <input class="login-page-form-input" type="text" id="signup-username" required>
-            <label for="signup-username">Nom d'utilisateur</label>
-            <input class="login-page-form-input" type="email" id="signup-email" required>
-            <label for="signup-email">Adresse e-mail</label>
-            <input type="password" id="signup-password" required>
-            <label class="login-page-form-input" for="signup-password">Mot de passe</label>
-            <button class="send-btn btn" id="signup-send" @click="signupSend">Envoyer</button>
-        </div>
-        <div id="login-form" v-show="showLoginForm">
-            <h2>Connexion</h2>
-            <input class="login-page-form-input" type="email" id="login-email" required>
-            <label for="login-email">Adresse e-mail</label>
-            <input class="login-page-form-input" type="password" id="login-password" required>
-            <label for="login-password">Mot de passe</label>
-            <button class="send-btn btn" id="login-send" @click="loginSend">Envoyer</button>
+        <div class="signupLogin">
+            <div id="signup-form" v-show="showSignupForm">
+                <h2>Créez un compte</h2>
+                <input class="login-page-form-input" type="text" id="signup-username" required>
+                <label for="signup-username">Nom d'utilisateur</label>
+                <input class="login-page-form-input" type="email" id="signup-email" required>
+                <label for="signup-email">Adresse e-mail</label>
+                <input type="password" id="signup-password" required>
+                <label class="login-page-form-input" for="signup-password">Mot de passe</label>
+                <button class="send-btn btn" id="signup-send" @click="signupSend">Envoyer</button>
+            </div>
+            <div id="login-form" v-show="showLoginForm">
+                <h2>Connexion</h2>
+                <input class="login-page-form-input" type="email" id="login-email" required>
+                <label for="login-email">Adresse e-mail</label>
+                <input class="login-page-form-input" type="password" id="login-password" required>
+                <label for="login-password">Mot de passe</label>
+                <button class="send-btn btn" id="login-send" @click="loginSend">Envoyer</button>
+            </div>
         </div>
     </div>
 </div>
@@ -34,7 +36,7 @@
 <script>
 import router from '../router/index'
 export default ({
-    name: 'loginForm',
+    name: 'loginSignup',
     data: function() {
         return {
             showLoginForm: false,
@@ -113,6 +115,11 @@ export default ({
 </script>
 
 <style lang="scss">
+.signupLogin{
+    border: 4px solid #ff8383;
+    background: #95949c;
+    padding: 2%;
+}
 #login {
     margin-right: 10%;
     margin-bottom: 2%;
@@ -142,14 +149,12 @@ export default ({
     margin-left: 25%;
 }
 .btn {
-   border-radius: 30px;
    width: 10%;
-   background-color: black;
-   border-color: black;
-   color: #FFFF;
+   background-color: white;
+   color: black;
 }
 .btn:hover {
-    background-color: #ffd7d7;
+    background-color: #ff8383;
     color: black;
 }
 </style>
