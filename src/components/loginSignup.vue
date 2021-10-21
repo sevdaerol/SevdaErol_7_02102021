@@ -89,9 +89,9 @@ export default ({
                 method: "POST",
                 headers: {"Content-Type": "application/Json"},
                 body: JSON.stringify({
+                    username: signupUsername.value,
                     email: signupEmail.value,
-                    password: signupPassword.value,
-                    username: signupUsername.value
+                    password: signupPassword.value
                 })
             }
             fetch("http://localhost:3000/api/user/signup", parameter)
