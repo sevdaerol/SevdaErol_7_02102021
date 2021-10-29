@@ -6,13 +6,16 @@
             </div>
             <div id="navbar-link-container">
                 <div class=navbar-link-div>
-                    <router-link class="navbar-link" to="/user">Mon Profil</router-link>
+                    <router-link class="navbar-link" to="/home">Groupomania</router-link>
+                </div>
+                 <div class=navbar-link-div>
+                    <router-link class="navbar-link" to="/construction">Actualité</router-link>
                 </div>
                 <div class=navbar-link-div>
-                    <router-link class="navbar-link" to="/home">GroupoForum</router-link>
+                    <router-link class="navbar-link" to="/user">Mon profil</router-link>
                 </div>
                 <div class=navbar-link-div>
-                    <router-link class="navbar-link" @click="cleanLocalStorage" to="/">Log Out</router-link>
+                    <router-link class="navbar-link" @click="cleanLocalStorage" to="/">Déconnexion</router-link>
                 </div>
             </div>
         </nav>
@@ -37,25 +40,27 @@ export default {
 #header-container {
     height: 30%;
     width: 100%;
-    box-shadow: 1px 10px 5px 0px #323232;
+    background-color: #060c52;
 }
 nav {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-
+    align-items: center;
+    justify-content: space-between;
+    height: 75px;
+    background-color: #060c52;
 }
 #navbar-logo {
     margin-right: 0%
 }
 #navbar-link-container {
-    margin-top: 0.5%;
     display: flex;
     width: 40%;
-    justify-content: flex-end;
+    justify-content: space-between;
+    margin-right: 3%;
 }
 .navbar-link-div {
-    margin-right: 2%
+    width: 30%;
 }
 .navbar-link {
     text-decoration: none;
@@ -65,5 +70,21 @@ nav {
     color: #FFD7D7;
     border-bottom: 3px solid #FFD7D7;
     padding-bottom: 3%;
+}
+@media only screen and (max-width: 600px) {
+    #header-container{
+        display: flex;
+    }
+    #navbar-logo{
+        width: 50%;
+    }
+    #navbar-link-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .navbar-link-div{
+        width: auto;
+    }
 }
 </style>

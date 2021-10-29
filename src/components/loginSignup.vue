@@ -1,10 +1,11 @@
 <template>
 <div id="login-page">
     <div>
-        <div>
+        <div class="img-container">
             <img class="logo-img" src="../assets/icon-left-font-monochrome-white.svg" alt="groupomania logo"/>
         </div>
         <h1>Bienvenue sur Groupomania!</h1>
+        <p>Connectez-vous ou Inscrivez-vous pour visualiser ce que vos collegues ont partagée</p>
         <div id="signup-login-selector">
             <button id="login" class="login-page-form-select-btn btn" @click="showLoginForm = !showLoginForm, showSignupForm = !showSignupForm, menuSelector">Log In</button>
             <button id="signup" class="login-page-form-select-btn btn" @click="showSignupForm = !showSignupForm, showLoginForm = !showLoginForm, menuSelector">Sign Up</button>
@@ -12,10 +13,10 @@
         <div class="signupLogin">
             <div id="signup-form" v-show="showSignupForm">
                 <h2>Créez un compte</h2>
-                <input class="login-page-form-input" type="text" id="signup-username" required>
-                <label for="signup-username">Nom d'utilisateur</label>
                 <input class="login-page-form-input" type="email" id="signup-email" required>
                 <label for="signup-email">Adresse e-mail</label>
+                <input class="login-page-form-input" type="text" id="signup-username" required>
+                <label for="signup-username">Nom d'utilisateur</label>
                 <input type="password" id="signup-password" required>
                 <label class="login-page-form-input" for="signup-password">Mot de passe</label>
                 <button class="send-btn btn" id="signup-send" @click="signupSend">Envoyer</button>
@@ -89,8 +90,8 @@ export default ({
                 method: "POST",
                 headers: {"Content-Type": "application/Json"},
                 body: JSON.stringify({
-                    username: signupUsername.value,
                     email: signupEmail.value,
+                    username: signupUsername.value,
                     password: signupPassword.value
                 })
             }
@@ -101,8 +102,8 @@ export default ({
                     .then(function(res){
                         localStorage.setItem('userId', res.userId);
                         localStorage.setItem('token', res.token);
-                        localStorage.setItem('username', signupUsername.value);
                         localStorage.setItem('email', signupEmail.value );
+                        localStorage.setItem('username', signupUsername.value);
                         router.push('home');
                         console.log("Connexion effectuée avec succès !");
                     })
@@ -115,9 +116,15 @@ export default ({
 </script>
 
 <style lang="scss">
+.img-container{
+    background-color: #060c52;
+}
+label{
+    color: white;
+}
 .signupLogin{
     border: 4px solid #ff8383;
-    background: #95949c;
+    background: #060c52;
     padding: 2%;
 }
 #login {
@@ -147,14 +154,11 @@ export default ({
     margin-top: 5%;
     width: 50%!important;
     margin-left: 25%;
-}
-.btn {
-   width: 10%;
-   background-color: white;
-   color: black;
+    background-color: white;
+    color: #060c52;
 }
 .btn:hover {
     background-color: #ff8383;
-    color: black;
+    color: white;
 }
 </style>

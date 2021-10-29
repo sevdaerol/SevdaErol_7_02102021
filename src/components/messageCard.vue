@@ -3,7 +3,7 @@
         <div class="message-header">
             <h3 class="message-header-title">{{title}}</h3>
             <div class="message-card-body">
-                <p class="message-body-text">{{message}}</p>
+                <p class="message-body-text">{{content}}</p>
             <div class="message-header-infos">
                 <p class="message-header-info-text">Posté le {{date}} à {{time}} par {{username}}</p>
             </div>
@@ -17,7 +17,7 @@
 import router from "../router/index"
 export default {
     name: "messageCard",
-    props: ['title', 'username', 'content', 'modifyMessagePath', 'buttonText'],
+    props: ['title', 'date', 'time', 'username', 'content', 'modifyMessagePath', 'buttonText'],
     methods: {
         redirectionToModifyMessage: function() {
             router.push(this.modifyMessagePath)
@@ -32,6 +32,7 @@ export default {
 .message-header-title {
     margin-top: 5%;
     text-decoration: underline;
+    color: black;
 }
 .message-header-info {
     font-size: 0.5rem;
@@ -40,7 +41,7 @@ export default {
     font-size: 1.1rem;
 }
 .message-card {
-    border: 2px solid white;
+    border: 2px solid;
     margin-top: 5%;
     margin-left: 15%;
     width: 70%;

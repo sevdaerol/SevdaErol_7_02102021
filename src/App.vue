@@ -13,7 +13,7 @@
   color: #FFFFFF;
 }
 body {
-  background: #060c52;
+  background: white;
 }
 input {
   background: white;

@@ -1,11 +1,14 @@
 //import Vue from 'vue'
 //import VueRouter from 'vue-router'
-
 //Vue.use(VueRouter)
 import { createRouter, createWebHistory } from 'vue-router'
-
-import loginSignup from '../components/loginSignup' //importer le components loginSignup
+//importer les components
+import loginSignup from '../components/loginSignup'
 import home from '../components/home'
+import construction from '../components/construction'
+import profilePage from '../components/profilePage'
+import newMessage from '../components/newMessage'
+import modifyMessage from '../components/modifyMessage'
 
 const routes = [
 
@@ -23,6 +26,26 @@ const routes = [
     path: '/home',
     name: 'home',
     component: home
+  },
+  {
+    path: '/construction',
+    name: 'construction',
+    component: construction
+  },
+  {
+    path: '/user',
+    name: 'profilePage',
+    component: profilePage
+  },
+  {
+    path: '/new',
+    name: 'newMessage',
+    component: newMessage
+  },
+  {
+    path: '/message/:id',
+    name: 'modifyMessage',
+    component: modifyMessage
   },
 
 ]
