@@ -27,6 +27,9 @@ export default ({
         newMessageRedirection: function() { //pour creer un nouveau message
             router.push('/new');
         },
+        displayAllRequest: function() {
+
+        }
     },
     mounted() {
         localStorage.removeItem("messageId"); //messageId defini dasn le back auth
