@@ -11,6 +11,9 @@
     </div>
 </template>
 
+
+
+
 <script>
 import router from '../router/index'
 import headerComponent from '../components/header.vue'
