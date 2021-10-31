@@ -34,19 +34,19 @@ export default ({
         fetch('http://localhost:3000/api/message') //req pour recuperer les messages depuis la bdd
         .then(function(res){
             if(res.ok){
-                console.log("dans then/if!");
+                //console.log("dans then/if!");
                 return res.json();
             }
             else {
-                console.log("dans then/else!");
+                //console.log("dans then/else!");
             }
         })
         .then(function(res){ //fonction pour afficher l'ensemble des messages
             console.log("dans then2!");
             for (let i in res){
-                console.log("dans for!");
-                console.log(res);
-                console.log(res.length);
+                //console.log("dans for!");
+                //console.log(res);
+                //console.log(res.length);
                 let date = res[i].datetime.split("T")[0];
                 let time = res[i].datetime.split("T")[1].split('Z')[0];
                 let propsData = {
@@ -58,7 +58,7 @@ export default ({
                     modifyMessagePath: "/message/"+res[i].message_id,  //definis dans controllers => message (alias)
                     buttonText: "Voir le message"
                 }
-                console.log("propsdata: " + propsData.title);
+                //console.log("propsdata: " + propsData.title);
 
                 const messageContainer = document.getElementById("message-container");
                 const messageContainerFirstChild = messageContainer.firstChild;
