@@ -55,7 +55,7 @@ export default ({
                 showLoginForm = false;
             }
         },
-        loginSend: function() {
+        loginSend: function() { //connection
             const loginPassword = document.getElementById("login-password");
             const loginEmail = document.getElementById("login-email");
             const parameter = {
@@ -82,7 +82,7 @@ export default ({
             })
             .catch();
         },
-        signupSend: function() {
+        signupSend: function() { //inscription
             const signupPassword = document.getElementById("signup-password");
             const signupEmail = document.getElementById("signup-email");
             const signupUsername = document.getElementById("signup-username");

@@ -1,7 +1,4 @@
-//import Vue from 'vue'
-//import VueRouter from 'vue-router'
-//Vue.use(VueRouter)
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router' //importer createRouter + createWebHistory pour la version 3 de Vue
 //importer les components
 import loginSignup from '../components/loginSignup'
 import home from '../components/home'

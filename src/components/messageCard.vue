@@ -15,7 +15,8 @@
 
 <script>
 import router from "../router/index"
-export default {
+import {defineComponent} from 'vue'; //importer defineComponent pour la version 3 de Vue
+export default defineComponent ({
     name: "messageCard",
     props: ['title', 'date', 'time', 'username', 'content', 'modifyMessagePath', 'buttonText'],
     methods: {
@@ -25,7 +26,7 @@ export default {
             localStorage.setItem("messageId", this.modifyMessagePath.split("/")[2]);
         }
     }
-}
+})
 </script>
 
 <style lang="scss">
@@ -41,7 +42,7 @@ export default {
     font-size: 1.1rem;
 }
 .message-card {
-    border: 2px solid;
+    border: 2px solid black;
     margin-top: 5%;
     margin-left: 15%;
     width: 70%;

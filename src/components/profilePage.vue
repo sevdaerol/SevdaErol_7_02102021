@@ -36,7 +36,7 @@ export default ({
         }
     },
     methods: {
-        deleteProfile: function() {
+        deleteProfile: function() { //suppression du compte
             const authHeaders = {
                 "Authorization": localStorage.getItem('token'),
                 "Content-Type": "Application/Json"
@@ -49,7 +49,7 @@ export default ({
             fetch("http://localhost:3000/api/user/delete/"+localStorage.getItem('userId'), parameters)
             .then(function(res){
                 if(res.ok){
-                    console.log("Votre compte à été supprimé!");
+                    console.log("Votre compte à bien été supprimé!");
                     router.push("/login");
                 }
             })
@@ -57,7 +57,7 @@ export default ({
                 console.log("Une erreur est survenue! Merci de réessayer plus tard.");
             });
         },
-        returnToHome: function() {
+        returnToHome: function() { //redirection vers la page d'acceuil
             router.push("home");
         }
     }

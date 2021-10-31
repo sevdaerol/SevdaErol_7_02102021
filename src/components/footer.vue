@@ -4,7 +4,7 @@
             <nav>
             <router-link to="">Mentions légales & Conditions Générale</router-link>
             <router-link to="">À propos</router-link>
-            <router-link to="">Contacter-nous</router-link>
+            <router-link to="">Contacter le service Ressources Humaines</router-link>
             <router-link to="">Groupomania - Site officiel</router-link>
             </nav>
         </footer>
