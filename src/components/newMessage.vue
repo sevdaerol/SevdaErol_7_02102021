@@ -6,10 +6,8 @@
             <div class="form-container">
                 <input id="new-message-form-title" class="new-message-input" maxlength="50" type="text" required>
                 <p>Titre (50 caractères maximum)</p>
-                <!--<label for="new-message-form-title">Titre (50 caractères maximum)</label>-->
                 <textarea id="new-message-form-text" class="new-message-input" maxlength="255" required></textarea>
                 <p>Rédigez votre message!</p>
-                <!--<label for="new-message-form-text">Rédigez votre message!</label>-->
                 <div class="form-btn">
                     <button class="btn home-redirection-btn" @click="homePageRedirection">Retourner a l'acceuil</button>
                     <button id="new-message-form-send" class="btn" @click="sendNewMessage">Envoyer le message</button>
@@ -31,8 +29,8 @@ export default ({
         homePageRedirection: function() {
             router.push("/home");
         },
-        sendNewMessage: function() {
-            console.log("test", localStorage.getItem("token"));
+        sendNewMessage: function() { //creer nouveau message!
+            //console.log("test", localStorage.getItem("token"));
             const newMessageFormTitle = document.getElementById("new-message-form-title");
             const newMessageFormText = document.getElementById("new-message-form-text");
             const parameters = {
