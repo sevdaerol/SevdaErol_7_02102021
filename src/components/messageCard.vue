@@ -15,7 +15,7 @@
 
 <script>
 import router from "../router/index"
-import {defineComponent} from 'vue'; //importer defineComponent pour la version 3 de Vue
+import {defineComponent} from 'vue'; //importer defineComponent pour class constructeur
 export default defineComponent ({
     name: "messageCard",
     props: ['title', 'date', 'time', 'username', 'content', 'modifyMessagePath', 'buttonText'],
@@ -31,7 +31,6 @@ export default defineComponent ({
 
 <style lang="scss">
 .message-header-title {
-    margin-top: 5%;
     text-decoration: underline;
     color: black;
 }
@@ -50,7 +49,7 @@ export default defineComponent ({
     height: 2%;
 }
 .modify-message-redirection-btn {
-    margin-bottom: 5%;
+    margin-bottom: 3%;
     width: 50%
 }
 </style>

@@ -77,6 +77,7 @@ export default ({
 }
 textarea {
     height: 70%;
+    width: 70%;
 }
 .new-message-input {
     width: 50%;

@@ -4,7 +4,7 @@
         <div id="modify-message-display">
         </div>
         <div id="modify-message-container">
-            <h1 id="modify-message-form-title">Entrez ci-dessous votre nouveau message</h1>
+            <h1 id="modify-message-form-title">Entrez ci-dessous votre nouveau message:</h1>
             <textarea id="modify-message-form-text" maxlength="255" required></textarea>
             <div id="modify-message-form-btn">
                 <button id="modify-message-form-modifiy" class="btn" @click="sendModifiedMessage">Modifier</button>
@@ -124,6 +124,9 @@ export default ({
 </script>
 
 <style lang="scss">
+#modify-message-form-title{
+    font-size: large;
+}
 #modify-message-form-delete{
     margin-left: 2%;
     margin-top: 1%;
