@@ -41,7 +41,7 @@ export default defineComponent ({
     font-size: 1.1rem;
 }
 .message-card {
-    border: 2px solid black;
+    border: 2px solid #ff8383;
     margin-top: 5%;
     margin-left: 15%;
     width: 70%;

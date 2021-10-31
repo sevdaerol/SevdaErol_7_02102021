@@ -122,6 +122,10 @@ export default ({
 label{
     color: white;
 }
+.login-page-form-select-btn {
+    border: 2px solid #d1d1d1;
+    width: 30%;
+}
 .signupLogin{
     border: 4px solid #ff8383;
     background: #060c52;
@@ -154,8 +158,6 @@ label{
     margin-top: 5%;
     width: 50%!important;
     margin-left: 25%;
-    background-color: white;
-    color: #060c52;
 }
 .btn:hover {
     background-color: #ff8383;

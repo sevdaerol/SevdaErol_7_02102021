@@ -78,7 +78,8 @@ h4{
     flex-direction: column;
 }
 #user-profile {
-    margin-top: 5%;
+    margin: 5%;
+    border: 2px solid #ff8383;
 }
 #user-return-btn {
     background-color: #060c52;

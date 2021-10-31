@@ -87,6 +87,9 @@ export default ({
                 if (res.ok){
                     console.log("message modifié enregistrée dans la BDD avec succès!");
                     router.push("/home");
+                } else {
+                    const unauthorizedMessage = document.getElementById("unauthorized-message");
+                    unauthorizedMessage.innerHTML = "Vous n'êtes pas authorisé(e) à moddifier ce message!";
                 }
             })
             .catch((error) => {
@@ -111,6 +114,9 @@ export default ({
                     console.log("Message supprimé de la base de données");
                     localStorage.removeItem("messageId");
                     router.push("/home");
+                } else {
+                    const unauthorizedMessage = document.getElementById("unauthorized-message");
+                    unauthorizedMessage.innerHTML = "Vous n'êtes pas authorisé(e) à supprimer ce message!";
                 }
             })
             .catch(function(err){

@@ -37,7 +37,7 @@ export default ({
 }
 #construction-alert {
     margin-top: 5%;
-    border: 2px solid #060c52;
+    border: 2px solid #ff8383;
 }
 #return-button {
     width: 80%!important;
