@@ -20,6 +20,7 @@
                 <input type="password" id="signup-password" required>
                 <label class="login-page-form-input" for="signup-password">Mot de passe</label>
                 <button class="send-btn btn" id="signup-send" @click="signupSend">Envoyer</button>
+                <p id="unauthorized-message"></p>
             </div>
             <div id="login-form" v-show="showLoginForm">
                 <h2>Connexion</h2>
@@ -28,16 +29,22 @@
                 <input class="login-page-form-input" type="password" id="login-password" required>
                 <label for="login-password">Mot de passe</label>
                 <button class="send-btn btn" id="login-send" @click="loginSend">Envoyer</button>
+                <p id="unauthorized-message"></p>
             </div>
         </div>
     </div>
+    <footerComponent/>
 </div>
 </template>
 
 <script>
 import router from '../router/index'
+import footerComponent from '../components/footer.vue'
 export default ({
     name: 'loginSignup',
+    components: {
+        footerComponent,
+    },
     data: function() {
         return {
             showLoginForm: false,
@@ -78,6 +85,9 @@ export default ({
                     console.log("Connexion réussie");
                     router.push('home');
                     })
+                } else {
+                    const unauthorizedMessage = document.getElementById("unauthorized-message");
+                    unauthorizedMessage.innerHTML = "Une erreur est survenue! Créez un compte dabbord!";
                 }
             })
             .catch();
@@ -107,9 +117,17 @@ export default ({
                         router.push('home');
                         console.log("Connexion effectuée avec succès !");
                     })
+                } else {
+                        const unauthorizedMessage = document.getElementById("unauthorized-message");
+                        unauthorizedMessage.innerHTML = "Une erreur est survenue! Si vous avez deja un compte connecter vous!";
                 }
             })
-            .catch();
+            .catch(function(err){
+                console.log(err);
+                const unauthorizedMessage = document.getElementById("unauthorized-message");
+                unauthorizedMessage.innerHTML = "Une erreur est survenue! Si vous avez deja un compte connecter vous!";
+            });
+
         }
     }
 })
@@ -145,9 +163,6 @@ label{
     width: 50%;
     margin-left: 25%;
 }
-.logo-img {
-    fill: #041185;
-}
 #login-form {
     display: flex;
     flex-direction: column;
@@ -162,5 +177,13 @@ label{
 .btn:hover {
     background-color: #ff8383;
     color: white;
+}
+#unauthorized-message{
+    color: white;
+}
+@media only screen and (max-width: 600px) {
+.logo-img {
+    width: 50%;
+}
 }
 </style>
