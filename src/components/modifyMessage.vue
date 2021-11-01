@@ -50,17 +50,12 @@ export default ({
                 modifyMessagePath: "/home"
             }
 
-        /* if(res[0].username != localStorage.getItem("username") && localStorage.getItem("username") !== "groupomaniaRH") {
-             const modifyMessagePage = document.getElementById("modify-message-page");
-             const modifyMessageContainer = document.getElementById("modify-message-container");
-             modifyMessagePage.removeChild(modifyMessageContainer);
-         }*/
-        const modifyMessageDisplay = document.getElementById("modify-message-display");
-        const modifyMessageDisplayFirstChild = modifyMessageDisplay.firstChild;
-        const mountNode = document.createElement("div");
-        mountNode.id ="mount-node";
-        modifyMessageDisplay.insertBefore(mountNode, modifyMessageDisplayFirstChild);
-        createApp(messageCard, propsData).mount('#mount-node');
+            const modifyMessageDisplay = document.getElementById("modify-message-display");
+            const modifyMessageDisplayFirstChild = modifyMessageDisplay.firstChild;
+            const mountNode = document.createElement("div");
+            mountNode.id ="mount-node";
+            modifyMessageDisplay.insertBefore(mountNode, modifyMessageDisplayFirstChild);
+            createApp(messageCard, propsData).mount('#mount-node');
         })
         .catch();
     },
@@ -136,5 +131,8 @@ export default ({
 #modify-message-form-delete{
     margin-left: 2%;
     margin-top: 1%;
+}
+#unauthorized-message{
+    color: #060c52;
 }
 </style>
