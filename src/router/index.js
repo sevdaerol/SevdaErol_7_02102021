@@ -52,4 +52,13 @@ const router = new createRouter({
   routes,
 })
 
+/*router.beforeEach((to, from, next) =>{
+  console.log(to.name)
+  let isauthent = localStorage.getItem('token') !="";
+  console.log(isauthent);
+  if(to.name !== 'loginSignup' && !isauthent)
+  next ({ name: 'login'})
+  else next ()
+});*/
+
 export default router

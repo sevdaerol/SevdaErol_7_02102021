@@ -60,6 +60,12 @@ export default ({
         returnToHome: function() { //redirection vers la page d'acceuil
             router.push("home");
         }
+    },
+    mounted() {
+         //methode = redirection
+        if(!localStorage.getItem('token')){
+            router.push('/');
+        }
     }
 })
 </script>

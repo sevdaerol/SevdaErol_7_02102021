@@ -29,48 +29,53 @@ export default ({
         },
     },
     mounted() {
-        localStorage.removeItem("messageId"); //messageId defini dans => back => auth
-        console.log("messageId: " + localStorage.messageId);
-        fetch('http://localhost:3000/api/message') //req pour recuperer les messages depuis la bdd
-        .then(function(res){
-            if(res.ok){
-                //console.log("dans then/if!");
-                return res.json();
-            }
-            else {
-                //console.log("dans then/else!");
-            }
-        })
-        .then(function(res){ //fonction pour afficher l'ensemble des messages
-            console.log("dans then2!");
-            for (let i in res){
-                //console.log("dans for!");
-                //console.log(res);
-                //console.log(res.length);
-                let date = res[i].datetime.split("T")[0];
-                let time = res[i].datetime.split("T")[1].split('Z')[0];
-                let propsData = {
-                    title: res[i].title,
-                    date: date,
-                    time: time,
-                    username: res[i].username,
-                    content: res[i].content,
-                    modifyMessagePath: "/message/"+res[i].message_id,  //definis dans controllers => message (alias)
-                    buttonText: "Voir le message"
+        //methode = redirection
+        if(!localStorage.getItem('token')){
+                router.push('/');
+        }else {
+            localStorage.removeItem("messageId"); //messageId defini dans => back => auth
+            console.log("messageId: " + localStorage.messageId);
+            fetch('http://localhost:3000/api/message') //req pour recuperer les messages depuis la bdd
+            .then(function(res){
+                if(res.ok){
+                    //console.log("dans then/if!");
+                    return res.json();
                 }
-                //console.log("propsdata: " + propsData.title);
+                else {
+                    //console.log("dans then/else!");
+                }
+            })
+            .then(function(res){ //fonction pour afficher l'ensemble des messages
+                console.log("dans then2!");
+                for (let i in res){
+                    //console.log("dans for!");
+                    //console.log(res);
+                    //console.log(res.length);
+                    let date = res[i].datetime.split("T")[0];
+                    let time = res[i].datetime.split("T")[1].split('Z')[0];
+                    let propsData = {
+                        title: res[i].title,
+                        date: date,
+                        time: time,
+                        username: res[i].username,
+                        content: res[i].content,
+                        modifyMessagePath: "/message/"+res[i].message_id,  //definis dans controllers => message (alias)
+                        buttonText: "Voir le message"
+                    }
+                    //console.log("propsdata: " + propsData.title);
 
-                const messageContainer = document.getElementById("message-container");
-                const messageContainerFirstChild = messageContainer.firstChild;
-                const mountNode = document.createElement("div");
-                mountNode.id = "mount-node";
-                messageContainer.insertBefore(mountNode, messageContainerFirstChild);
-                createApp(messageCard, propsData).mount('#mount-node'); //mount propsData => messageCard => element #mount-node avec createApp
-            }
-        })
-        .catch((error) => {
-              console.error(error);
-        });
+                    const messageContainer = document.getElementById("message-container");
+                    const messageContainerFirstChild = messageContainer.firstChild;
+                    const mountNode = document.createElement("div");
+                    mountNode.id = "mount-node";
+                    messageContainer.insertBefore(mountNode, messageContainerFirstChild);
+                    createApp(messageCard, propsData).mount('#mount-node'); //mount propsData => messageCard => element #mount-node avec createApp
+                }
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+        }
     }
 })
 </script>

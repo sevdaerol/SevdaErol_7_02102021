@@ -29,35 +29,40 @@ export default ({
         footerComponent,
     },
     mounted() {
-        fetch("http://localhost:3000/api/message/"+localStorage.getItem("messageId")) //recuperer message par Id
-        .then(function(res){
-            if(res.ok){
-                return res.json();
-            }
-                const unauthorizedMessage = document.getElementById("unauthorized-message")
-                unauthorizedMessage.innerHTML = "Vous n'êtes pas authorisé(e) à modifier ce message!";
-        })
-        .then(function(res){
-            const date = res[0].datetime.split("T")[0];
-            const time = res[0].datetime.split("T")[1].split('Z')[0];
-            let propsData = {
-                title: res[0].title,
-                date: date,
-                time: time,
-                username: res[0].username,
-                content: res[0].content,
-                buttonText: "Retourner a la page d'acceuil",
-                modifyMessagePath: "/home"
-            }
+         //methode = redirection
+        if(!localStorage.getItem('token')){
+            router.push('/');
+        }else {
+            fetch("http://localhost:3000/api/message/"+localStorage.getItem("messageId")) //recuperer message par Id
+            .then(function(res){
+                if(res.ok){
+                    return res.json();
+                }
+                    const unauthorizedMessage = document.getElementById("unauthorized-message")
+                    unauthorizedMessage.innerHTML = "Vous n'êtes pas authorisé(e) à modifier ce message!";
+            })
+            .then(function(res){
+                const date = res[0].datetime.split("T")[0];
+                const time = res[0].datetime.split("T")[1].split('Z')[0];
+                let propsData = {
+                    title: res[0].title,
+                    date: date,
+                    time: time,
+                    username: res[0].username,
+                    content: res[0].content,
+                    buttonText: "Retourner a la page d'acceuil",
+                    modifyMessagePath: "/home"
+                }
 
-            const modifyMessageDisplay = document.getElementById("modify-message-display");
-            const modifyMessageDisplayFirstChild = modifyMessageDisplay.firstChild;
-            const mountNode = document.createElement("div");
-            mountNode.id ="mount-node";
-            modifyMessageDisplay.insertBefore(mountNode, modifyMessageDisplayFirstChild);
-            createApp(messageCard, propsData).mount('#mount-node');
-        })
-        .catch();
+                const modifyMessageDisplay = document.getElementById("modify-message-display");
+                const modifyMessageDisplayFirstChild = modifyMessageDisplay.firstChild;
+                const mountNode = document.createElement("div");
+                mountNode.id ="mount-node";
+                modifyMessageDisplay.insertBefore(mountNode, modifyMessageDisplayFirstChild);
+                createApp(messageCard, propsData).mount('#mount-node');
+            })
+            .catch();
+        }
     },
      methods: {
         sendModifiedMessage: function() { //envoie du message modifie

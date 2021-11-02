@@ -58,6 +58,12 @@ export default ({
                 console.log("Message non envoyé!");
             });
         }
+    },
+    mounted() {
+        //methode = redirection
+        if(!localStorage.getItem('token')){
+            router.push('/');
+        }
     }
 })
 </script>
